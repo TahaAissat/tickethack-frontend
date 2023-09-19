@@ -3,10 +3,10 @@ const departure = document.querySelector('#departure');
 const arrival = document.querySelector('#arrival');
 const date = document.querySelector('#date');
 
-fetch(`https://tickethack-backend-ochre.vercel.app/home/search/${departure}/${arrival}/${date}`)
+fetch(`https://tickethack-backend-ochre.vercel.app/home/search/${departure.value}/${arrival.value}/${date.value}`)
 .then(response=>response.json())
-.then(trips => {
-    if(!trips.result){
+.then(data => {
+    if(!data.result){
         // Afficher loupe et message
         document.querySelector('#resultat').innerHTML = `
 
@@ -17,7 +17,7 @@ fetch(`https://tickethack-backend-ochre.vercel.app/home/search/${departure}/${ar
         document.querySelector('#resultat').innerHTML = `
         
         <div id="book">
-        <p id="trajets">`${trips.departure}` > `${trips.arrival}` `${trips.date}` `${trips.price}` € </p>
+        <p id="trajets">${data.departure} > ${data.arrival} ${trips.date} ${trips.price} € </p>
         <button type="button" id="btn-book">Book</button>
         </div>
 
