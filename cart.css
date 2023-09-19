@@ -1,0 +1,40 @@
+body {
+    background-color: #F2F3F4;
+    margin: 0;
+    height: 100vh;
+
+}
+
+#header {
+
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+
+
+#boites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 50px 20px;
+}
+
+
+
+.boite {
+
+    background-color: white;
+    width: 900px;
+    height: 150px;
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+}
+
