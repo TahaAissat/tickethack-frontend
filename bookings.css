@@ -1,0 +1,23 @@
+#bookings {
+
+    background-color: #F8F1F1;
+    width: 600px;
+    height: 60px;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#trajets-purchased {
+
+    justify-content: space-around
+
+}
+
+#footer {
+    color:#50A892;
+}

@@ -60,3 +60,30 @@ body {
     width: 100px;
     height: 100px;
 }
+
+
+#book {
+
+    background-color: #F8F1F1;
+    width: 300px;
+    height: 60px;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#btn-book {
+    
+    border-width: thin;
+    border-color: grey;
+    background-color : #50A892;
+    color : white;
+    width: 55px;
+    height: 35px;
+    border-radius: 5px;
+
+}
