@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="home.css" />
 
     
@@ -15,11 +15,9 @@
     <div id="home">
         <button type="button" id="btn-home">Tickethack</button>
     </div>
-    <div id="cart">
+    <div id="right-buttons">
         <button type="button" id="btn-cart">Cart</button>
-    </div>
-    <div id="bookings">
-        <button type="button" id="btn-cart">Bookings</button>
+        <button type="button" id="btn-bookings">Bookings</button>
     </div>
 </div>
 
@@ -31,15 +29,17 @@
     <p id="sous-titre">Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack.</p>
    
     <div id="boites">
-    <div class="boite">
-        <input id="departure" type="text" placeholder="Departure" />
-        <input id="arrival" type="text" placeholder="Arrival" />
-        <input id="date" type="date" value="2023-09-19" />
-        <button type="button" id="btn-search">Search</button>
+    <div id="bte-search" class="boite">
+        <div id="location">
+            <input id="departure" class="searchinput" type="text" placeholder="Departure" />
+            <input id="arrival"  class="searchinput"  type="text" placeholder="Arrival" />
+        </div>
+            <input id="date" type="date" value="2023-09-19" />
+            <button type="button" id="btn-search">Search</button>
     </div>
 
 
-    <div id= "resultat" class="boite">
+    <div id="bte-resultat" class="boite">
         <img src="images/train.png" id="img1"/>
         <p id="textbase">It's time to book your future trip.</p>
     </div>

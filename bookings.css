@@ -1,0 +1,70 @@
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    background-color: white;
+    height:10vh;
+}
+#container {
+    display:flex;
+    flex-direction:column;
+    height:90vh;
+    justify-content:center;
+}
+#home {
+    display:flex;
+    justify-content:left;
+}
+#right-buttons{
+    position:absolute;
+    left:90%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+#btn-home {
+    display:flex;
+    background-color:transparent;
+    border:none;
+    justify-content:left;
+    font-size:25px;
+    color:#50A892;
+    margin-left:20px;
+}
+#btn-cart {
+    display:flex;
+    background-color:transparent;
+    border:none;
+    font-size:14px;
+    font-weight:bold;
+}
+#btn-bookings {
+    display:flex;
+    background-color:transparent;
+    border:none;
+    font-size:14px;
+    font-weight:bold;
+}
+body {
+    background-color: #F2F3F4;
+    margin: 0;
+    height: 100vh;
+
+}
+#boites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 50px 20px;
+}
+.boite {
+    background-color: white;
+    width: 900px;
+    height: 150px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
