@@ -2,35 +2,51 @@ document.querySelector('#btn-search').addEventListener('click', function () {
 const departure = document.querySelector('#departure');
 const arrival = document.querySelector('#arrival');
 const date = document.querySelector('#date');
-console.log(date.value)
 
 fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${date.value}`)
 .then(response=>response.json())
-.then(trips => {
-    console.log(trips)
-   /* if(!trips.result){
+.then(recherche => {
+    console.log(recherche)
+    if(!recherche.result){
         // Afficher loupe et message
-        document.querySelector('#resultat').innerHTML = `
+        document.querySelector('#bte-resultat').innerHTML = `
         <img src="images/notfound.png" id="notfound"/>
         <p id="textbase">No trip found.</p>`
     } else {
-        document.querySelector('#resultat').innerHTML = ` 
+        // Afficher les résultats de la recherche
+        for(let trip of recherche.trips){
+        console.log(typeof trip.date);
+        const heures=new Date(trip.date).getHours();
+        const minutes=new Date(trip.date).getMinutes();
+        document.querySelector('#bte-resultat').innerHTML += ` 
         <div id="book">
-        <p id="trajets">${trips.departure}>${trips.arrival}${trips.date}${trips.price}€ </p>
+        <p id="trajets">${trip.departure}>${trip.arrival}${heures}:${minutes}${trip.price}€ </p>
         <button type="button" id="btn-book">Book</button>
         </div>        
         `
-        // Afficher les résultats*/
-    } )  
-})
-//}
-//)
+        }
+       
+    }
+}).then(()=>{
+ const buttonsBook=document.querySelectorAll('#btn-book');
+    for(let button of buttonsBook){
+        button.addEventListener('click', function(){
+        const trajet=document.querySelector('#button')//.parentNode.firstElementChild
+        console.log(trajet);
+            fetch(`http://localhost:3000/home/addCart`, {
+            method:'POST',
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify()
+            })
+        .then(response=>response.json())
+        .then(data => {
+            console.log(data)  
+            })
+    })
+    }})
+})  
 
 
-/*fetch(`https://tickethack-backend-ochre.vercel.app/home/addCart`)
-.then(response=>response.json())
-.then(data => {
-console.log(data)
-    // Fetch la route qui ajoute dans le cart lorsqu'on appuie sur le bouton book 
 
-})*/
+
+
