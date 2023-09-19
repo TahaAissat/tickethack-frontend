@@ -9,7 +9,7 @@ document.querySelector('.boite').innerHTML += `
 
 <p>My cart</p>
 <div id="carts">
-    <p id="trajets-carted">${data.departure} > ${data.arrival} ${data.date} ${data.price} Departure in 5 hours</p>
+    <p id="trajets-carted">${data.departure} > ${data.arrival} ${data.date} ${data.price}</p>
     <button type="button" id="btn-sup">X</button>
 </div>
 <div id="totalprice">

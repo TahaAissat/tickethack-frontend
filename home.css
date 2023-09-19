@@ -111,6 +111,12 @@ body {
     flex-direction:column;
     margin-left:30px;
 }
+
+#notfound {
+    width: 100px;
+    height: 100px;
+}
+
 .boite {
     background-color: white;
     width: 300px;
@@ -125,7 +131,6 @@ body {
     width: 100px;
     height: 100px;
 }
-
 
 #book {
 
