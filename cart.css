@@ -9,14 +9,9 @@ body {
     flex-direction:column;
     height:90vh;
     justify-content:center;
-}
-#boites {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    padding: 10px 50px 20px;
 }
+
 .boite {
     background-color: white;
     width: 900px;
@@ -26,6 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 #header {
     display: flex;
@@ -67,4 +63,70 @@ body {
     border:none;
     font-size:14px;
     font-weight:bold;
+}
+
+
+#carts {
+
+    background-color: #F8F1F1;
+    width: 600px;
+    height: 60px;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#btn-sup {
+
+    border-width: thin;
+    border-color: grey;
+    background-color : #50A892;
+    color : white;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    position: absolute;
+    left: 70%;
+
+}
+
+#trajets-carted {
+
+    justify-content: space-around
+
+}
+
+#totalprice {
+
+    color: white;
+    background-color: #001648;
+    width: 600px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#prix {
+    position: absolute;
+    left: 25%;
+}
+
+#btn-purchase {
+
+    border-width: thin;
+    border-color: grey;
+    background-color : #50A892;
+    color : white;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    position: absolute;
+    left: 66%;
+
 }

@@ -18,6 +18,8 @@
     flex-direction:column;
     height:90vh;
     justify-content:center;
+    align-items: center;
+   
 }
 #home {
     display:flex;
@@ -59,13 +61,7 @@ body {
     height: 100vh;
 
 }
-#boites {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
 
-}
 
 #trajets-purchased {
 

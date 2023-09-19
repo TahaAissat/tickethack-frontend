@@ -56,8 +56,27 @@ body {
     color: white;
 }
 #btn-search {
-    background-color:#50A892;
+    border: none;
+    background-color : #50A892;
+    color : white;
+    width: 55px;
+    height: 35px;
+    border-radius: 5px;
+    height:40px;
+    width:270px;
+    border-radius:10px;
 }
+
+#date {
+    background-color:whitesmoke;
+    border:none;
+    height:40px;
+    width:270px;
+    border-radius:10px;
+    
+}
+
+
 #sous-titre {
     color: white;
 }
@@ -69,6 +88,7 @@ body {
     padding: 10px 50px 20px;
 }
 #bte-search {
+    
     display:flex;
     flex-direction:column;
     margin-right:80px;
@@ -81,7 +101,7 @@ body {
 .searchinput {
     background-color:whitesmoke;
     border:none;
-    height:50px;
+    height:40px;
     width:270px;
     border-radius:10px;
     
@@ -132,3 +152,4 @@ body {
     border-radius: 5px;
 
 }
+

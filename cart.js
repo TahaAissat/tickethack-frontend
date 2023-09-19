@@ -7,14 +7,21 @@ fetch(`https://tickethack-backend-ochre.vercel.app/cart/display`)
 
 document.querySelector('.boite').innerHTML += `
 
-
+<p>My cart</p>
+<div id="carts">
+    <p id="trajets-carted">${data.departure} > ${data.arrival} ${data.date} ${data.price} Departure in 5 hours</p>
+    <button type="button" id="btn-sup">X</button>
+</div>
+<div id="totalprice">
+    <p id="Prix">Total : 100€</p>
+    <button type="button" id="btn-purchase">Purchase</button>
+</div>
 
 
 `
 
 // Afficher toute la collection cart 
 // ++ ajoute le bouton purchase & le bouton X
-
 
 });
 
