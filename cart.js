@@ -5,7 +5,6 @@ fetch(`http://localhost:3000/cart/display`)
 .then(response=>response.json())
 .then(data => {
     let total = 0
-
     document.querySelector('.boite').innerHTML = `
     <p>My cart</p>
     <div id="carts">
@@ -16,7 +15,6 @@ fetch(`http://localhost:3000/cart/display`)
     </div>`
 
     for (let trip of data.allTrips){
-        console.log(trip.trips.price)
     const heures = new Date(trip.trips.date).getHours();
     const minutes = new Date(trip.trips.date).getMinutes();
     total += trip.trips.price 
@@ -24,7 +22,7 @@ fetch(`http://localhost:3000/cart/display`)
     document.querySelector('#carts').innerHTML += `
     <div id="trajets-carted">
     <p >${trip.trips.departure} > ${trip.trips.arrival} ${heures}:${minutes} ${trip.trips.price}€</p>
-    <button type="button" id="btn-sup">X</button>
+    <button type="button" class="btn-sup" id='${trip.trips._id}'>X</button>
     </div>
 `
 
@@ -39,10 +37,37 @@ document.querySelector('#btn-purchase').addEventListener('click', function(){
             document.querySelector('.boite').innerHTML = 
             `<p id="textbase">No tickets in your cart</p>
              <p id="textbase">Why not plan a trip ?</p>`
-         window.location.assign('bookings.html')
+        
+        window.location.assign('bookings.html')       
         }
     })
 })
+<<<<<<< HEAD
 };
 });
+=======
+}
+
+const supButtons = document.querySelectorAll('.btn-sup');
+for(let button of supButtons){
+    button.addEventListener('click', function () {
+        let tripId={id:button.id}
+        fetch('http://localhost:3000/cart/deleteCart',{
+            method:'DELETE',
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify(tripId)
+        })
+        .then(response=>response.json())
+        .then(retour => {
+            if(retour.result){
+                button.parentNode.remove()
+            }
+        })
+    })
+}
+
+}
+
+);
+>>>>>>> ad823869760f30d24f24462fcfdcc790981ece9c
 
