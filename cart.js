@@ -10,7 +10,7 @@ fetch(`http://localhost:3000/cart/display`)
     <div id="carts">
     </div>
     <div id="totalprice">
-    <p id="Prix">Total : ${total} €</p>
+    <p id="Prix" >Total : ${total} €</p>
     <button type="button" id="btn-purchase">Purchase</button>
     </div>`
 
@@ -42,10 +42,6 @@ document.querySelector('#btn-purchase').addEventListener('click', function(){
         }
     })
 })
-<<<<<<< HEAD
-};
-});
-=======
 }
 
 const supButtons = document.querySelectorAll('.btn-sup');
@@ -61,6 +57,7 @@ for(let button of supButtons){
         .then(retour => {
             if(retour.result){
                 button.parentNode.remove()
+                document.querySelector('#Prix').textContent = `Total :  €` 
             }
         })
     })
@@ -69,5 +66,4 @@ for(let button of supButtons){
 }
 
 );
->>>>>>> ad823869760f30d24f24462fcfdcc790981ece9c
 
