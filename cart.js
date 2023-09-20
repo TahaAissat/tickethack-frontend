@@ -16,17 +16,32 @@ fetch(`http://localhost:3000/cart/display`)
     </div>`
 
     for (let trip of data.allTrips){
-        console.log(trip.trips[0].price)
-    const heures = new Date(trip.trips[0].date).getHours();
-    const minutes = new Date(trip.trips[0].date).getMinutes();
-    total += trip.trips[0].price 
+        console.log(trip.trips.price)
+    const heures = new Date(trip.trips.date).getHours();
+    const minutes = new Date(trip.trips.date).getMinutes();
+    total += trip.trips.price 
     document.querySelector('#carts').innerHTML += `
     <div id="trajets-carted">
-    <p >${trip.trips[0].departure} > ${trip.trips[0].arrival} ${heures}:${minutes} ${trip.trips[0].price}€</p>
+    <p >${trip.trips.departure} > ${trip.trips.arrival} ${heures}:${minutes} ${trip.trips.price}€</p>
     <button type="button" id="btn-sup">X</button>
     </div>
 `
 
+document.querySelector('#btn-purchase').addEventListener('click', function(){
+    fetch('http://localhost:3000/cart/purchase',{
+        method:'POST',
+        headers:{'Content-type':'application/json'}
+    })
+    .then(response=>response.json())
+    .then(data => {
+        if(data.result){
+            document.querySelector('.boite').innerHTML = 
+            `<p id="textbase">No tickets in your cart</p>
+             <p id="textbase">Why not plan a trip ?</p>`
+         window.location.assign('bookings.html')
+        }
+    })
+})
 };
 });
 
@@ -34,7 +49,7 @@ fetch(`http://localhost:3000/cart/display`)
 
 /*document.querySelector('#btn-purchase').addEventListener('click', function () {
 
-fetch(`http://localhost:3000/cart/book`)
+fetch(`http://localhost:3000/cart/purchase`)
 .then(response=>response.json())
 .then(data => {
 console.log(data)

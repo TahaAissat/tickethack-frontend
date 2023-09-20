@@ -1,23 +1,16 @@
-
-
-
-fetch(`https://tickethack-backend-ochre.vercel.app/cart/bookings/display`)
+fetch('http://localhost:3000/bookings/display')
 .then(response=>response.json())
 .then(data => {
-
     document.querySelector('.boite').innerHTML = `
     <p>My bookings</p>
     <div id="bookings">
-        <p id="trajets-purchased">`${data.departure}` > `${data.arrival}` `${data.date}` `${data.price}` € Departure in 5 hours</p>
     </div>
     <div id="footer">
-        <p>Enjoy your travels with Tickethack!</p>
-    </div>
-    
-    `
-
-
-// Affiche les voyages à acheter qui proviennent du cart.
-
-
-)};
+    <p>Enjoy your travels with Tickethack!</p>
+    </div>`
+    for(let booking of data.bookedTrips){
+        document.querySelector('#bookings').innerHTML +=
+        `<p id="trajets-purchased">${booking.booking.departure} > ${booking.booking.arrival}${booking.booking.date} ${booking.booking.price} € Departure in 5 hours</p>`
+    } 
+}
+);
