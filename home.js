@@ -36,7 +36,7 @@ fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${d
             })
         .then(response=>response.json())
         .then(() => {
-      //  window.location.assign('cart.html')
+        window.location.assign('cart.html')
             })
     })
     }})
