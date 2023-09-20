@@ -23,10 +23,11 @@ fetch(`http://localhost:3000/cart/display`)
     let total = zero += trip.trips.price 
     document.querySelector('#Prix').textContent = `Total : ${total} €`
     document.querySelector('#carts').innerHTML += `
-    <div id="trajets-carted">
+    <div class="trajets-carted">
     <p >${trip.trips.departure} > ${trip.trips.arrival} ${heures}:${minutes} ${trip.trips.price}€</p>
     <button type="button" class="btn-sup" id='${trip.trips._id}'>X</button>
     </div>
+    
 `
 
 const supButtons = document.querySelectorAll('.btn-sup');
