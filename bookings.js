@@ -10,8 +10,7 @@ fetch('http://localhost:3000/bookings/display')
     </div>`
     for(let booking of data.bookedTrips){
         const departHours = (new Date().getHours() - new Date(booking.booking.date).getUTCHours())
-
-        const heures = new Date (booking.booking.date).getHours()
+        const heures = new Date (booking.booking.date).getUTCHours()
         const minutes = new Date (booking.booking.date).getMinutes()
    
         document.querySelector('#bookings').innerHTML +=
