@@ -41,8 +41,3 @@ fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${d
     })
     }})
 })  
-
-
-
-
-
