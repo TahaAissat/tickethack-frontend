@@ -65,6 +65,9 @@ body {
     font-weight:bold;
 }
 
+a {
+    text-decoration: none;
+}
 
 #carts {
 

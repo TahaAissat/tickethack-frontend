@@ -55,6 +55,11 @@
     font-size:14px;
     font-weight:bold;
 }
+
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: #F2F3F4;
     margin: 0;
