@@ -133,7 +133,7 @@ body {
     height: 100px;
 }
 
-#book {
+.book {
 
     background-color: #F8F1F1;
     width: 300px;
@@ -147,7 +147,7 @@ body {
 
 }
 
-#btn-book {
+.btn-book {
     
     border-width: thin;
     border-color: grey;

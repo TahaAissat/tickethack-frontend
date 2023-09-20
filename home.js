@@ -6,7 +6,6 @@ const date = document.querySelector('#date');
 fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${date.value}`)
 .then(response=>response.json())
 .then(recherche => {
-    console.log(recherche)
     if(!recherche.result){
         // Afficher loupe et message
         document.querySelector('#bte-resultat').innerHTML = `
@@ -15,32 +14,29 @@ fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${d
     } else {
         // Afficher les résultats de la recherche
         for(let trip of recherche.trips){
-        console.log(typeof trip.date);
         const heures=new Date(trip.date).getHours();
         const minutes=new Date(trip.date).getMinutes();
         document.querySelector('#bte-resultat').innerHTML += ` 
-        <div id="book">
+        <div class="book">
         <p id="trajets">${trip.departure}>${trip.arrival}${heures}:${minutes}${trip.price}€ </p>
-        <button type="button" id="btn-book">Book</button>
+        <button type="button" class='btn-book' id='${trip._id}'>Book</button>
         </div>        
         `
-        }
-       
+        } 
     }
-}).then(()=>{
- const buttonsBook=document.querySelectorAll('#btn-book');
+}).then(()=>{ // Rajouter un voyage au panier
+ const buttonsBook=document.querySelectorAll('.btn-book');
     for(let button of buttonsBook){
+    const tripId = {trips:button.id};
         button.addEventListener('click', function(){
-        const trajet=document.querySelector('#button')//.parentNode.firstElementChild
-        console.log(trajet);
-            fetch(`http://localhost:3000/home/addCart`, {
+            fetch('http://localhost:3000/home/addCart', {
             method:'POST',
             headers:{'Content-type':'application/json'},
-            body:JSON.stringify()
+            body:JSON.stringify(tripId)
             })
         .then(response=>response.json())
-        .then(data => {
-            console.log(data)  
+        .then(() => {
+      //  window.location.assign('cart.html')
             })
     })
     }})
