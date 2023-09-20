@@ -1,9 +1,14 @@
 #bookings {
 
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: #F8F1F1;
-    width: 600px;
-    height: 60px;
+    padding: 10px;
+    margin: 10px;
     border-radius: 20px;
+    flex-direction: column;
 }
 
 #header {
@@ -68,7 +73,7 @@ body {
 }
 
 
-#trajets-purchased {
+.trajets-purchased {
 
     justify-content: space-around
 
@@ -81,11 +86,10 @@ body {
 .boite {
     background-color: white;
     width: 900px;
-    height: 150px;
-    border-radius: 30px;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: scroll;
+    overflow : scroll;
 }
