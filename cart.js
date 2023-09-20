@@ -42,11 +42,9 @@ document.querySelector('#btn-purchase').addEventListener('click', function(){
         }
     })
 })
-<<<<<<< HEAD
 };
 });
-=======
-}
+
 
 const supButtons = document.querySelectorAll('.btn-sup');
 for(let button of supButtons){
@@ -66,8 +64,7 @@ for(let button of supButtons){
     })
 }
 
-}
 
-);
->>>>>>> ad823869760f30d24f24462fcfdcc790981ece9c
+
+
 
