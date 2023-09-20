@@ -9,8 +9,9 @@ fetch('http://localhost:3000/bookings/display')
     <p>Enjoy your travels with Tickethack!</p>
     </div>`
     for(let booking of data.bookedTrips){
+        const departHours = (new Date().getHours() - new Date(booking.booking.date).getUTCHours())
         document.querySelector('#bookings').innerHTML +=
-        `<p id="trajets-purchased">${booking.booking.departure} > ${booking.booking.arrival}${booking.booking.date} ${booking.booking.price} € Departure in 5 hours</p>`
+        `<p id="trajets-purchased">${booking.booking.departure} > ${booking.booking.arrival}${booking.booking.date} ${booking.booking.price} € Departure in ${departHours} hours</p>`
     } 
 }
 );

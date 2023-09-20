@@ -1,3 +1,5 @@
+document.getElementById('date').valueAsDate = new Date()
+
 document.querySelector('#btn-search').addEventListener('click', function () {
 const departure = document.querySelector('#departure');
 const arrival = document.querySelector('#arrival');

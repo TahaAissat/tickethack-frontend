@@ -5,7 +5,6 @@ fetch(`http://localhost:3000/cart/display`)
 .then(response=>response.json())
 .then(data => {
     let total = 0
-
     document.querySelector('.boite').innerHTML = `
     <p>My cart</p>
     <div id="carts">
@@ -16,14 +15,13 @@ fetch(`http://localhost:3000/cart/display`)
     </div>`
 
     for (let trip of data.allTrips){
-        console.log(trip.trips.price)
     const heures = new Date(trip.trips.date).getHours();
     const minutes = new Date(trip.trips.date).getMinutes();
     total += trip.trips.price 
     document.querySelector('#carts').innerHTML += `
     <div id="trajets-carted">
     <p >${trip.trips.departure} > ${trip.trips.arrival} ${heures}:${minutes} ${trip.trips.price}€</p>
-    <button type="button" id="btn-sup">X</button>
+    <button type="button" class="btn-sup" id='${trip.trips._id}'>X</button>
     </div>
 `
 
@@ -38,37 +36,32 @@ document.querySelector('#btn-purchase').addEventListener('click', function(){
             document.querySelector('.boite').innerHTML = 
             `<p id="textbase">No tickets in your cart</p>
              <p id="textbase">Why not plan a trip ?</p>`
-         window.location.assign('bookings.html')
+        
+        window.location.assign('bookings.html')       
         }
     })
 })
-};
-});
+}
 
-// créer l'event sur le click 
+const supButtons = document.querySelectorAll('.btn-sup');
+for(let button of supButtons){
+    button.addEventListener('click', function () {
+        let tripId={id:button.id}
+        fetch('http://localhost:3000/cart/deleteCart',{
+            method:'DELETE',
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify(tripId)
+        })
+        .then(response=>response.json())
+        .then(retour => {
+            if(retour.result){
+                button.parentNode.remove()
+            }
+        })
+    })
+}
 
-/*document.querySelector('#btn-purchase').addEventListener('click', function () {
+}
 
-fetch(`http://localhost:3000/cart/purchase`)
-.then(response=>response.json())
-.then(data => {
-console.log(data)
-document.querySelector('.boite').innerHTML = 
+);
 
-// Ajoute les voyages du cart dans booking au click sur Purchase. Change également de page vers Bookings.
-
-
-});
-
-});
-
-document.querySelector('#btn-sup').addEventListener('click', function () {
-fetch(`http://localhost:3000/cart/deleteCart`)
-.then(response=>response.json())
-.then(data => {
-console.log(data)
-
-// Route pour supprimer lorqu'on appuie sur le bouton X
-
-})
-});*/
