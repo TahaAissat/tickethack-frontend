@@ -25,7 +25,7 @@ fetch(`http://localhost:3000/home/search/${departure.value}/${arrival.value}/${d
         } 
     }
 }).then(()=>{ // Rajouter un voyage au panier
- const buttonsBook=document.querySelectorAll('.btn-book');
+ const buttonsBook = document.querySelectorAll('.btn-book');
     for(let button of buttonsBook){
     const tripId = {trips:button.id};
         button.addEventListener('click', function(){

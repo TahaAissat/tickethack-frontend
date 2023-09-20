@@ -1,37 +1,40 @@
 
 
 
-fetch(`http://localhost:3000/home/cart/display`)
+fetch(`http://localhost:3000/cart/display`)
 .then(response=>response.json())
 .then(data => {
-    const heures = new Date(data.date).getHours();
-    const minutes = new Date(data.date).getMinutes();
-    const total = data.price + data.price // À revoir mdr
-document.querySelector('.boite').innerHTML += `
+    let total = 0
 
-<p>My cart</p>
-<div id="carts">
-    <p id="trajets-carted">${data.departure} > ${data.arrival} ${heures}:${minutes} ${data.price}€</p>
-    <button type="button" id="btn-sup">X</button>
-</div>
-<div id="totalprice">
+    document.querySelector('.boite').innerHTML = `
+    <p>My cart</p>
+    <div id="carts">
+    </div>
+    <div id="totalprice">
     <p id="Prix">Total : ${total}€</p>
     <button type="button" id="btn-purchase">Purchase</button>
-</div>
+    </div>`
 
+    for (let trip of data.allTrips){
+        console.log(trip.trips[0].price)
+    const heures = new Date(trip.trips[0].date).getHours();
+    const minutes = new Date(trip.trips[0].date).getMinutes();
+    total += trip.trips[0].price 
+    document.querySelector('#carts').innerHTML += `
+    <div id="trajets-carted">
+    <p >${trip.trips[0].departure} > ${trip.trips[0].arrival} ${heures}:${minutes} ${trip.trips[0].price}€</p>
+    <button type="button" id="btn-sup">X</button>
+    </div>
 `
 
-// Afficher toute la collection cart 
-// ++ ajoute le bouton purchase & le bouton X
-
+};
 });
-
 
 // créer l'event sur le click 
 
-document.querySelector('#btn-purchase').addEventListener('click', function () {
+/*document.querySelector('#btn-purchase').addEventListener('click', function () {
 
-fetch(`http://localhost:3000/home/cart/book`)
+fetch(`http://localhost:3000/cart/book`)
 .then(response=>response.json())
 .then(data => {
 console.log(data)
@@ -45,7 +48,7 @@ document.querySelector('.boite').innerHTML =
 });
 
 document.querySelector('#btn-sup').addEventListener('click', function () {
-fetch(`http://localhost:3000/home/cart/deleteCart`)
+fetch(`http://localhost:3000/cart/deleteCart`)
 .then(response=>response.json())
 .then(data => {
 console.log(data)
@@ -53,4 +56,4 @@ console.log(data)
 // Route pour supprimer lorqu'on appuie sur le bouton X
 
 })
-});
+});*/
