@@ -21,6 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow : scroll
     
 }
 #header {
@@ -80,7 +81,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow : scroll
+    
 
 }
 
@@ -100,15 +101,18 @@ a {
 
 #trajets-carted {
 
+    display: flex;
     justify-content: space-around
+   
 
 }
 
 #totalprice {
 
+    text-align: right;
     color: white;
     background-color: #001648;
-    width: 600px;
+    width: 900px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -117,6 +121,7 @@ a {
 }
 
 #prix {
+    
     position: absolute;
     left: 25%;
 }
@@ -131,6 +136,6 @@ a {
     height: 35px;
     border-radius: 5px;
     position: absolute;
-    left: 66%;
+    left: 75%;
 
 }
